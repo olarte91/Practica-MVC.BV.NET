@@ -1,0 +1,3 @@
+﻿<connectionStrings>
+	<add name="ConnectionName" connectionString="Host=localhost;Port=5432;Database=database_name;Username=username;Password=password" providerName="Npgsql" />
+</connectionStrings>
