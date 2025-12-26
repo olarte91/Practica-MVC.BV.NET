@@ -21,16 +21,16 @@ End Code
     <tbody>
         @For Each item In Model
             @<tr>
-        <td>@item.NombreCompleto</td>
-        <td>@item.Cargo</td>
-        <td>@item.Sueldo.ToString("C2")</td>
-        <td>@item.CalcularDescuento().ToString("C2")</td>
-        <td>@item.SueldoTotal().ToString("C2")</td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", New With {.id = item.Id}, New With {.class = "btn btn-info btn-sm"}) | 
-            @Html.ActionLink("Eliminar", "Eliminar", New With {.id = item.Id}, New With {.class = "btn btn-danger btn-sm"})
-        </td>
-        </tr>
+                <td>@item.NombreCompleto</td>
+                <td>@item.Cargo</td>
+                <td>@item.Sueldo.ToString("C2")</td>
+                <td>@item.CalcularDescuento().ToString("C2")</td>
+                <td class="sueldo-total" data-aidi="@item.Id">@item.SueldoTotal().ToString("C2")</td>
+                <td>
+                        <button class="btn btn-info btn-sm btn-detalles" data-id="@item.Id">Editar</button>
+                    @Html.ActionLink("Eliminar", "Eliminar", New With {.id = item.Id}, New With {.class = "btn btn-danger btn-sm"})
+                </td>
+            </tr>
         Next
     </tbody>
 </table>
@@ -41,7 +41,25 @@ End Code
 
     <span class="mx-3 text-primary">Página @ViewBag.ActualPage</span>
 
-   @If ViewBag.HasNextPage Then
-       @Html.ActionLink("Siguiente >>", "ListarEmpleados", New With {.page = ViewBag.ActualPage + 1}, New With {.class = "btn btn-primary"})
-   End If
-                </div>
+    @If ViewBag.HasNextPage Then
+        @Html.ActionLink("Siguiente >>", "ListarEmpleados", New With {.page = ViewBag.ActualPage + 1}, New With {.class = "btn btn-primary"})
+    End If
+</div>
+
+<div class="modal fade" id="modalDetalles" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detalles del Empleado</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body" id="contenidoModal">
+                <p>Cargando...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    <script src="~/Scripts/empleados.js"></script>
+ End Section

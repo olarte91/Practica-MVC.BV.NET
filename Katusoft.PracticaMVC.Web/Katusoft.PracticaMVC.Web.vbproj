@@ -299,6 +299,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\empleados.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.js" />
@@ -310,6 +311,7 @@
     <Content Include="Views\Hola\Crear.vbhtml" />
     <Content Include="Views\Hola\Editar.vbhtml" />
     <Content Include="Views\Hola\Eliminar.vbhtml" />
+    <Content Include="Views\Hola\_DetallesEmpleado.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

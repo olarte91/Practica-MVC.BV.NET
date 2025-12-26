@@ -2,4 +2,7 @@
     Function GetAll() As List(Of EmpleadoDTO)
     Function GetPage(page As Integer, size As Integer) As List(Of EmpleadoDTO)
     Function HasNextPage(page As Integer, size As Integer) As Boolean
+    Function SueldoMayorA3(id As Integer) As Boolean
+
+    Function ObtenerPorId(id As Integer) As EmpleadoDTO
 End Interface

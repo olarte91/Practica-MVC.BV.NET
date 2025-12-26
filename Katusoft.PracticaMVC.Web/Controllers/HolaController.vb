@@ -88,5 +88,19 @@ Namespace Controllers
             db.SaveChanges()
             Return RedirectToAction("ListarEmpleados")
         End Function
+
+        'Verificar si el empleado gana mas de 3 M
+        <HttpGet>
+        Function SueldoMayorA3(ByVal id As Integer) As JsonResult
+            Dim resultado = _service.SueldoMayorA3(id)
+            Return Json(New With {.esMayor = resultado}, JsonRequestBehavior.AllowGet)
+        End Function
+
+        Function VerDetalles(ByVal id As Integer) As ActionResult
+            Dim empleado = _service.ObtenerPorId(id) ' Tu lógica para buscarlo
+
+            ' Devolvemos una Vista Parcial pasándole el modelo
+            Return PartialView("_DetallesEmpleado", empleado)
+        End Function
     End Class
 End Namespace
